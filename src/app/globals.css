@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-background text-text font-sans;
+}
+
+/* Scrollbar para navegadores baseados em WebKit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #2e2e30; /* cor de fundo */
+}
+::-webkit-scrollbar-thumb {
+  background: #1660ea; /* roxo */
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f472b6; /* rosa */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1660ea #2e2e30;
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #3b82f6; /* azul Tailwind */
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+}
+
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #3b82f6, 0 0 5px #3b82f6;
+  opacity: 1.0;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Estilos personalizados para sliders */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #2563eb;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+}
+
+.slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  background: #2563eb;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+}
+
+/* Animações personalizadas */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
+  }
+}
+
+/* Animação personalizada para os pontos do mapa mundi */
+@keyframes world-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+    filter: drop-shadow(0 0 3px currentColor);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+    filter: drop-shadow(0 0 12px currentColor);
+  }
+}
+
+.world-pulse {
+  animation: world-pulse 4s ease-in-out infinite;
+  fill: currentColor;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+/* Diferentes delays para criar efeito de onda */
+.world-pulse-delay-1 { animation-delay: 0s; }
+.world-pulse-delay-2 { animation-delay: 0.7s; }
+.world-pulse-delay-3 { animation-delay: 1.4s; }
+.world-pulse-delay-4 { animation-delay: 2.1s; }
+.world-pulse-delay-5 { animation-delay: 2.8s; }
+.world-pulse-delay-6 { animation-delay: 3.5s; }
+
+/* Animação dos anéis orbitando */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.data-ring {
+  transform-origin: center;
+}
+
+.data-ring-1 {
+  animation: orbit 20s linear infinite;
+}
+
+.data-ring-2 {
+  animation: orbit 25s linear infinite reverse;
+}
+
+.data-ring-3 {
+  animation: orbit 30s linear infinite;
+}
+
+/* Animação das partículas fluindo */
+@keyframes data-flow {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.data-particle {
+  animation: data-flow 3s ease-in-out infinite;
+}
+
+.data-particle-1 { animation-delay: 0s; }
+.data-particle-2 { animation-delay: 0.5s; }
+.data-particle-3 { animation-delay: 1s; }
+.data-particle-4 { animation-delay: 1.5s; }
+.data-particle-5 { animation-delay: 2s; }
+.data-particle-6 { animation-delay: 2.5s; }
+.data-particle-7 { animation-delay: 0.3s; }
+.data-particle-8 { animation-delay: 0.8s; }
+.data-particle-9 { animation-delay: 1.3s; }
+.data-particle-10 { animation-delay: 1.8s; }
+.data-particle-11 { animation-delay: 2.3s; }
+.data-particle-12 { animation-delay: 2.8s; }
+
+/* Animação das conexões de dados */
+@keyframes data-connection-pulse {
+  0%, 100% {
+    opacity: 0.1;
+    stroke-dasharray: 5, 5;
+  }
+  50% {
+    opacity: 0.6;
+    stroke-dasharray: 10, 5;
+  }
+}
+
+.data-connection {
+  animation: data-connection-pulse 4s ease-in-out infinite;
+}
+
+.data-connection-1 { animation-delay: 0s; }
+.data-connection-2 { animation-delay: 1s; }
+.data-connection-3 { animation-delay: 2s; }
+.data-connection-4 { animation-delay: 3s; }
+
+/* Efeitos de hover para cards */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradientes personalizados */
+.gradient-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.gradient-danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+/* Efeitos para sidebar */
+.sidebar-item {
+  position: relative;
+  overflow: hidden;
+  background: transparent !important;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.sidebar-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.sidebar-item:hover::before {
+  left: 100%;
+}
+
+.sidebar-item:hover {
+  background: rgba(63, 63, 70, 0.3) !important;
+  border-color: rgba(63, 63, 70, 0.5);
+  transform: translateX(4px);
+}
+
+/* Animações para ícones da sidebar */
+.sidebar-icon {
+  transition: all 0.3s ease;
+}
+
+.sidebar-item:hover .sidebar-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Efeito de brilho para itens ativos */
+.sidebar-item-active {
+  position: relative;
+  background: rgba(63, 63, 70, 0.5) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.sidebar-item-active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* Scrollbar personalizada para sidebar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 2px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
